@@ -1,17 +1,12 @@
 const {Router}=require('express')
 const router=Router()
 
-const mysqlConnection=require('../mysql.config')
+const {getMangas,getMangaInfo, getCapitulosManga, getInfoCapitulo, getCapituloCascade}=require('../controllers/getting.controllers')
  
-router.get('/',(req,res)=>{
-    const myQuery=`SELECT Capitulo.nombre as Titulo , color as Color ,numeroCapitulo as Numero_capitulo, numeroPaginas as Numero_paginas, Manga.nombre as Manga , Scan.apodo as Scan FROM Capitulo inner join Manga on Capitulo.Manga_id = Manga.id inner join Scan on Capitulo.Scan_id = Scan.id WHERE Manga.nombre = "dr,stone";` 
-    mysqlConnection.query(myQuery,(error,rows,filds)=>{
-        if(!error){
-            res.json(rows)
-        }else{
-            res.json(error)
-        }
-    })
-})
+router.get('/mangas',getMangas)
+router.get('/manga/:name',getMangaInfo)
+router.get('/manga/:name/capitulos',getCapitulosManga)
+router.get('/manga/:name/capitulo/:numberCap',getInfoCapitulo)
+router.get('/manga/:name/capitulo/:numberCap/scan-traductor/:scan/cascade',getCapituloCascade)
 
 module.exports=router

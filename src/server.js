@@ -1,6 +1,7 @@
 const morgan = require('morgan')
 const express=require('express')
 const app=express()
+
 //Middlewares
 app.use(express.json())
 app.use(morgan('dev'))
@@ -15,7 +16,7 @@ app.use(function(req, res, next) {
 //Routes
 // Getting data
 app.use(require('./routes/gettingData.routes'))
-
+app.use(require('./routes/addingData.routes'))
 
 //Statis files
 
