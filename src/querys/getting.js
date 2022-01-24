@@ -6,7 +6,7 @@ inner join Demografia
 on Manga.Demografia_id = Demografia.id
 inner join Mangaka
 on Manga.Mangaka_id = Mangaka.id ;
-`
+` 
 querys.MangaInfo=(manga_name)=>{
     return `SELECT nombre as Nombre, numeroCapitulos as Numero_capitulos, Estado.tipo as Estado, Demografia.tipo as Demografia , Mangaka.autor as Mangaka FROM Manga inner join Estado on Manga.Estado_id = Estado.id inner join Demografia on Manga.Demografia_id = Demografia.id inner join Mangaka on Manga.Mangaka_id = Mangaka.id WHERE Nombre = "${manga_name}";` 
 }
