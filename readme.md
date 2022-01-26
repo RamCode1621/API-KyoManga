@@ -1,1 +1,1 @@
-hola fans del manga
+hola fans de nuestros mangas 
