@@ -2,7 +2,37 @@ const ControllerGetting=[]
 
 const mysqlConnection=require('../mysql.config')
 
-const {Manga,MangaInfo,CapitulosManga,InfoCapituloManga, PaginasCapituloCascade}=require('../querys/getting')
+const {Demografia,Mangaka,Genero,Manga,MangaInfo,CapitulosManga,InfoCapituloManga, PaginasCapituloCascade}=require('../querys/getting')
+
+ControllerGetting.getGenero=(req,res)=>{
+    mysqlConnection.query(Genero,(error,rows,filds)=>{
+        if(!error){
+            res.json(rows)
+        }else{
+            res.json(error)
+        }
+    })
+}
+
+ControllerGetting.getDemografia=(req,res)=>{
+    mysqlConnection.query(Demografia,(error,rows,filds)=>{
+        if(!error){
+            res.json(rows)
+        }else{
+            res.json(error)
+        }
+    })
+}
+
+ControllerGetting.getMangaka=(req,res)=>{
+    mysqlConnection.query(Mangaka,(error,rows,filds)=>{
+        if(!error){
+            res.json(rows)
+        }else{
+            res.json(error)
+        }
+    })
+}
 
 ControllerGetting.getMangas=(req,res)=>{
     mysqlConnection.query(Manga,(error,rows,filds)=>{

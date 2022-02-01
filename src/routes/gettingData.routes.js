@@ -1,8 +1,12 @@
 const {Router}=require('express')
 const router=Router()
 
-const {getMangas,getMangaInfo, getCapitulosManga, getInfoCapitulo, getCapituloCascade}=require('../controllers/getting.controllers')
+const {getMangaka,getDemografia,getGenero,getMangas,getMangaInfo, getCapitulosManga, getInfoCapitulo, getCapituloCascade}=require('../controllers/getting.controllers')
  
+router.get('/genero',getGenero)
+router.get('/demografia',getDemografia)
+router.get('/mangaka',getMangaka)
+
 router.get('/mangas',getMangas)
 router.get('/manga/:name',getMangaInfo)
 router.get('/manga/:name/capitulos',getCapitulosManga)

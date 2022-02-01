@@ -1,4 +1,10 @@
 const querys=[]
+
+querys.Genero=`SELECT * FROM GeneroManga ;`
+querys.Demografia=`SELECT * FROM Demografia ;`
+querys.Mangaka=`SELECT * FROM Mangaka ;`
+
+
 querys.Manga=`SELECT nombre, Mangaka.Autor ,numeroCapitulos, Estado.tipo, Demografia.tipo,Descripcion
 FROM Manga inner join Estado 
 on Manga.Estado_id = Estado.id 

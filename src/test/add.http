@@ -1,0 +1,49 @@
+######
+POST http://localhost:5000/addGenero HTTP/1.1
+content-type: application/json
+
+{
+    "generoNombre":"Spokon"
+}
+
+######
+POST http://localhost:5000/addDemografia HTTP/1.1
+content-type: application/json
+
+{
+    "demografiaNombre":"Gore"
+}
+
+######
+POST http://localhost:5000/addMangaka HTTP/1.1
+content-type: application/json
+
+{
+    "mangakaNombre":"Akira Torrillama",
+    "uriAvatar":""
+}
+
+######
+POST http://localhost:5000/addScan HTTP/1.1
+content-type: application/json
+
+{
+    "apodo":"La quinta hoja",
+    "email":"latim2022",
+    "password":"f76gi76ti876tg87"
+}
+
+# nombreManga,numCapitulos,estadoID,demografiaID,mangakaID,descripcion,portada
+######
+POST http://localhost:5000/addManga HTTP/1.1
+content-type: application/json
+
+{ 
+    "nombreManga":"Meda in abyss",
+    "numCapitulos":"178",
+    "estadoID":2,
+    "demografiaID":2,
+    "mangakaID":1,
+    "descripcion":"fg7gf7ig8t8787y87y",
+    "portada":"f76gi76ti876uyg786g876t76fg876trtg87",
+}
