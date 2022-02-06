@@ -11,7 +11,7 @@ POST http://localhost:5000/addDemografia HTTP/1.1
 content-type: application/json
 
 {
-    "demografiaNombre":"Gore"
+    "demografiaNombre":"Asian"
 }
 
 ######
@@ -19,7 +19,7 @@ POST http://localhost:5000/addMangaka HTTP/1.1
 content-type: application/json
 
 {
-    "mangakaNombre":"Akira Torrillama",
+    "mangakaNombre":"Pepe",
     "uriAvatar":""
 }
 
@@ -28,8 +28,8 @@ POST http://localhost:5000/addScan HTTP/1.1
 content-type: application/json
 
 {
-    "apodo":"La quinta hoja",
-    "email":"latim2022",
+    "apodo":"kraken",
+    "email":"efj42r@some.com",
     "password":"f76gi76ti876tg87"
 }
 
@@ -40,10 +40,51 @@ content-type: application/json
 
 { 
     "nombreManga":"Meda in abyss",
-    "numCapitulos":"178",
+    "numCapitulos":178,
     "estadoID":2,
     "demografiaID":2,
     "mangakaID":1,
     "descripcion":"fg7gf7ig8t8787y87y",
-    "portada":"f76gi76ti876uyg786g876t76fg876trtg87",
+    "portada":"f76gi76ti876uyg786g876t76fg876trtg87"
 }
+
+# nombreCapitulo,color, numeroPaginas, numeroCapitulo ,mangaId ,scanId
+#######query
+POST http://localhost:5000/addCapitulo HTTP/1.1
+content-type: application/json
+
+{ 
+    "nombreCapitulo":"Date prisa Goku!!!",
+    "color":"No",
+    "numeroPaginas":60,
+    "numeroCapitulo":78,
+    "mangaId":36,
+    "scanId":4
+}
+
+# numeroPagina,url,capituloId,mangaId,scanId
+#######
+POST http://localhost:5000/addPaginas HTTP/1.1
+content-type: application/json
+ 
+[
+    { 
+    "numeroPagina":4,
+    "url":"jdhf987435fyh35987y2fc834",
+    "capituloId":21,
+    "mangaId":36,
+    "scanId":4
+    },{ 
+    "numeroPagina":5,
+    "url":"jdhf987435fyh35987y2fc834",
+    "capituloId":21,
+    "mangaId":36,
+    "scanId":4
+    },{ 
+    "numeroPagina":6,
+    "url":"jdhf987435fyh35987y2fc834",
+    "capituloId":21,
+    "mangaId":36,
+    "scanId":4
+    }
+]
