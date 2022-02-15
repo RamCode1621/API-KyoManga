@@ -236,3 +236,68 @@ on Capitulo.Manga_id = Manga.id
 inner join Scan
 on Capitulo.Scan_id = Scan.id
 WHERE Manga.nombre = "dr,stone" and numeroCapitulo =  1 ;
+
+--Creando procedimientos almacenados
+
+delimiter //
+create procedure addGenero(_nombre varchar(45))
+begin 
+	INSERT INTO Genero (tipo) VALUES (_nombre);
+end;//
+
+delimiter //
+create procedure addDemografia(_nombre varchar(45))
+begin 
+	INSERT INTO Demografia (tipo) VALUES (_nombre);
+end;//
+
+delimiter //
+create procedure addMangaka(_nombreAutor varchar(45),_uriAvatar varchar(150))
+begin 
+	INSERT INTO Mangaka (_nombreAutor, Avatar_url) VALUES (_nomberAutor,_uriAvatar);
+end;//
+
+delimiter //
+create procedure addScan(_nombre varchar(45),_email varchar(45),_password varchar(45))
+begin 
+	INSERT INTO Scan (apodo, correo, clave) VALUES (_nombre, _email, _password);
+end;//
+
+delimiter //
+create procedure addManga(
+	_nombre varchar(45),
+	_numeroCapitulos INT(11),
+	_estadoId INT(11),
+	_demografiaId INT(11),
+	_mangakaId INT(11),
+	_descripcion TEXT,
+	_portadaUri LONGTEXT)
+begin 
+	INSERT INTO Manga (nombre, numeroCapitulos, Estado_id, Demografia_id, Mangaka_id, Descripcion, portada) 
+	VALUES (_nombre,_numeroCapitulos,_estadoId,_demografiaId,_mangakaId,_descripcion,_portadaUri);
+end;//
+
+delimiter //
+create procedure addCapitulo(
+	_nombre varchar(45),
+	_color varchar(45),
+	_numeroPaginas INT(3),
+	_numeroCapitulo INT(5),
+	_mangaId INT(11),
+	_scanId INT(11))
+begin 
+	INSERT INTO Capitulo (nombre, color, numeroPaginas,numeroCapitulo, Manga_id, Scan_id) 
+    VALUES (_nombre,_color,_numeroPaginas, _numeroCapitulo,_mangakaId,_scanId);
+end;//
+
+delimiter //
+create procedure addPagina(
+	numeroPagina INT(3),
+    url VARCHAR (45),
+    capituloId INT(11),
+    mangaId INT(11),
+    scanId INT(11))
+begin 
+	INSERT INTO Capitulo (nombre, color, numeroPaginas,numeroCapitulo, Manga_id, Scan_id) 
+    VALUES (_nombre,_color,_numeroPaginas, _numeroCapitulo,_mangakaId,_scanId);
+end;//

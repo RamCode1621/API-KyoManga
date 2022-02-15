@@ -8,6 +8,7 @@ function doQuery(res,query) {
     mysqlConnection.query(query,(error,rows,filds)=>{
        if(!error){
            res.json(rows)
+            // console.log(rows) 
        }else{
            console.log('Error: query rejected!!!')
            res.json(error)

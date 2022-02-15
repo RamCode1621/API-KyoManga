@@ -28,8 +28,8 @@ ControllerAdding.addDemografia=(req,res)=>{
 }
 
 ControllerAdding.addMangaka=(req,res)=>{
-    const {mangakaNombre}=req.body
-    const query=addMangaka(mangakaNombre)
+    const {mangakaNombre,uriAvatar}=req.body
+    const query=addMangaka(mangakaNombre,uriAvatar)
     doQuery(res,query)
 }
 

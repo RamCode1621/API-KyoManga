@@ -10,7 +10,7 @@ let configConnection={
     database:process.env.SQL_DEFAULT_SCHEMA,
     multipleStatements:true 
 }
-
+ 
 function handleDisconnect() {
     mysqlConnection=mysql.createConnection(configConnection)
 

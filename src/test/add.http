@@ -3,7 +3,7 @@ POST http://localhost:5000/addGenero HTTP/1.1
 content-type: application/json
 
 {
-    "generoNombre":"Spokon"
+    "generoNombre":"Magical girls"
 }
 
 ######
@@ -11,7 +11,7 @@ POST http://localhost:5000/addDemografia HTTP/1.1
 content-type: application/json
 
 {
-    "demografiaNombre":"Asian"
+    "demografiaNombre":"Australian"
 }
 
 ######
@@ -19,8 +19,8 @@ POST http://localhost:5000/addMangaka HTTP/1.1
 content-type: application/json
 
 {
-    "mangakaNombre":"Pepe",
-    "uriAvatar":""
+    "mangakaNombre":"Franchesco",
+    "uriAvatar":"fjeroitjuw35490uw358u"
 }
 
 ######
