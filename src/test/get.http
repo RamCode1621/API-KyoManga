@@ -9,16 +9,16 @@ http://localhost:5000/demografia
 http://localhost:5000/mangas
 
 ####
-http://localhost:5000/manga/Meda%20in%20abyss
+http://localhost:5000/manga/Crash%20Bandicoot%20Dansu!%20De%20jump!%20Na%20Daibouken
 
 ###
-http://localhost:5000/manga/Meda%20in%20abyss/capitulos
+http://localhost:5000/manga/Crash%20Bandicoot%20Dansu!%20De%20jump!%20Na%20Daibouken/capitulos
 
 ###
-http://localhost:5000/manga/Meda%20in%20abyss/capitulo/78
+http://localhost:5000/manga/Naruto/capitulo/1
 
 ###Cascada
-http://localhost:5000/manga/Dr,Stone/capitulo/1/scan-traductor/Soboro/cascade
+http://localhost:5000/manga/Crash%20Bandicoot%20Dansu!%20De%20jump!%20Na%20Daibouken/capitulo/1/cascade
 
 ###Paginado (aun no implementado)
 http://localhost:5000/manga/Dr,Stone/capitulo/1/pagina/1

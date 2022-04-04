@@ -1,6 +1,6 @@
 const ControllerGetting=[]
 
-const mysqlConnection=require('../mysql.config')
+const mysqlConnection=require('../mysql.connection')
 
 const {Demografia,Mangaka,Genero,Manga,MangaInfo,CapitulosManga,InfoCapituloManga, PaginasCapituloCascade}=require('../querys/getting')
 
@@ -52,8 +52,8 @@ ControllerGetting.getInfoCapitulo=(req,res)=>{
 
 
 ControllerGetting.getCapituloCascade=(req,res)=>{
-    const {name,numberCap,scan}=req.params
-    const query=PaginasCapituloCascade(name,numberCap,scan)
+    const {name,numberCap}=req.params
+    const query=PaginasCapituloCascade(name,numberCap)
     doQuery(res,query)
 }
 

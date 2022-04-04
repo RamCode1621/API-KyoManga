@@ -3,7 +3,7 @@ POST http://localhost:5000/addGenero HTTP/1.1
 content-type: application/json
 
 {
-    "generoNombre":"Magical girls"
+    "generoNombre":"Stoking"
 }
 
 ######
@@ -36,7 +36,8 @@ content-type: application/json
 # nombreManga,numCapitulos,estadoID,demografiaID,mangakaID,descripcion,portada
 ######
 POST http://localhost:5000/addManga HTTP/1.1
-content-type: application/json
+content-type:multipart/form-data; boundary=----WebKitFormBoundary7MA4YWxkTrZu0gW
+
 
 { 
     "nombreManga":"Meda in abyss",
@@ -45,7 +46,6 @@ content-type: application/json
     "demografiaID":2,
     "mangakaID":1,
     "descripcion":"fg7gf7ig8t8787y87y",
-    "portada":"f76gi76ti876uyg786g876t76fg876trtg87"
 }
 
 # nombreCapitulo,color, numeroPaginas, numeroCapitulo ,mangaId ,scanId
@@ -54,11 +54,11 @@ POST http://localhost:5000/addCapitulo HTTP/1.1
 content-type: application/json
 
 { 
-    "nombreCapitulo":"Date prisa Goku!!!",
+    "nombreCapitulo":"Naruto and kyubi",
     "color":"No",
-    "numeroPaginas":60,
-    "numeroCapitulo":78,
-    "mangaId":36,
+    "numeroPaginas":0,
+    "numeroCapitulo":3,
+    "mangaId":56,
     "scanId":4
 }
 
@@ -70,18 +70,6 @@ content-type: application/json
 [
     { 
     "numeroPagina":4,
-    "url":"jdhf987435fyh35987y2fc834",
-    "capituloId":21,
-    "mangaId":36,
-    "scanId":4
-    },{ 
-    "numeroPagina":5,
-    "url":"jdhf987435fyh35987y2fc834",
-    "capituloId":21,
-    "mangaId":36,
-    "scanId":4
-    },{ 
-    "numeroPagina":6,
     "url":"jdhf987435fyh35987y2fc834",
     "capituloId":21,
     "mangaId":36,

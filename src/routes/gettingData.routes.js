@@ -11,6 +11,6 @@ router.get('/mangas',getMangas)
 router.get('/manga/:name',getMangaInfo)
 router.get('/manga/:name/capitulos',getCapitulosManga)
 router.get('/manga/:name/capitulo/:numberCap',getInfoCapitulo)
-router.get('/manga/:name/capitulo/:numberCap/scan-traductor/:scan/cascade',getCapituloCascade)
+router.get('/manga/:name/capitulo/:numberCap/cascade',getCapituloCascade)
 
 module.exports=router

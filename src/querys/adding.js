@@ -21,7 +21,7 @@ querys.addManga=(nombreManga,numCapitulos,estadoID,demografiaID,mangakaID,descri
 }
 
 querys.addCapitulo=(nombreCapitulo,color, numeroPaginas, numeroCapitulo ,mangaId ,scanId)=>{
-    return `CALL addCapitulo ('${nombreCapitulo}','${color}', ${numeroPaginas}, ${numeroCapitulo} ,${mangaId} ,${scanId});`
+    return `CALL addCapitulo('${nombreCapitulo}','${color}', ${numeroPaginas}, ${numeroCapitulo} ,${mangaId} ,${scanId});`
 }  
 
 querys.addPagina=(numeroPagina,url,capituloId,mangaId,scanId)=>{

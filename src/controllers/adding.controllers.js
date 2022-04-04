@@ -1,18 +1,30 @@
+const cloudinary = require('cloudinary');
+const fs =require('fs-extra')
 const ControllerAdding=[]
-
 const {addGenero,addDemografia,addMangaka,addScan,addManga,addCapitulo,addPagina}=require('../querys/adding')
-const mysqlConnection=require('../mysql.config')
+const mysqlConnection=require('../mysql.config');
+
+
+
+cloudinary.config({
+    cloud_name: process.env.CLOUDINARY_NAME,
+    api_key: process.env.CLOUDINARY_KEY,
+    api_secret:process.env.CLOUDINARY_SECRET
+})
  
 function doQuery(res,query) {
      mysqlConnection.query(query,(error,rows,filds)=>{
         if(!error){
-            res.json(rows)
+            console.log(rows)
+            res.json({
+                message:"Se agrego correctamente"
+            })
         }else{
-            console.log('Error: query rejected!!!')
-            res.json(error)
-        } 
+            res.json({
+                message:"No se agrego error"
+            })
+        }
     }) 
-    // mysqlConnection.end()
 }
 
 ControllerAdding.addGenero=(req,res)=>{
@@ -39,9 +51,12 @@ ControllerAdding.addScan=(req,res)=>{
     doQuery(res,query)
 }
 
-ControllerAdding.addManga=(req,res)=>{
-    const {nombreManga,numCapitulos,estadoID,demografiaID,mangakaID,descripcion,portada}=req.body
-    const query=addManga(nombreManga,numCapitulos,estadoID,demografiaID,mangakaID,descripcion,portada)
+ControllerAdding.addManga=async(req,res)=>{
+    const {nombreManga,numCapitulos,estadoID,demografiaID,mangakaID,descripcion}=req.body
+    const portada=req.files[0].path
+    const resCloudunary=await cloudinary.v2.uploader.upload(portada)
+    const query=addManga(nombreManga,numCapitulos,estadoID,demografiaID,mangakaID,descripcion,resCloudunary.url)
+    await fs.unlink(portada)
     doQuery(res,query)
 }
 
@@ -52,15 +67,26 @@ ControllerAdding.addCapitulo=(req,res)=>{
 }
 
 ControllerAdding.addPagina =(req,res)=>{
-    const dataArray=req.body
-    let querys=""
-    dataArray.forEach((element)=>{
-        const {numeroPagina,url,capituloId,mangaId,scanId}=element
-        const stringQuery=addPagina(numeroPagina,url,capituloId,mangaId,scanId)
-        querys+=stringQuery
-    });
-    // console.log(querys)
-    doQuery(res,querys)
+    const {mangaId,scanId,capituloId}=req.body
+    const files=req.files
+    files.forEach((item)=>{
+        sendImage(item,mangaId,scanId,capituloId)
+    })
+
+    async function sendImage (element,mangaId,scanId,capituloId) {
+        const resCloudunary=await cloudinary.v2.uploader.upload(element.path)
+        querys=addPagina(parseInt(element.originalname),resCloudunary.url,capituloId,mangaId,scanId)
+        await fs.unlink(element.path)
+        
+        mysqlConnection.query(querys,(error,rows,filds)=>{
+            if(!error){
+                console.log(rows)
+            }else{
+                console.log(error)
+            }
+        }) 
+    }
+
 }
 
-module.exports=ControllerAdding 
+module.exports=ControllerAdding
